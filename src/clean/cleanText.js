@@ -19,6 +19,11 @@ export function cleanText(text) {
   cleaned = cleaned.replace(/&#39;/g, "'");
   cleaned = cleaned.replace(/&nbsp;/g, " ");
 
+  // Remove footnote markers: [1], [23], [a b], [citation needed]
+  cleaned = cleaned.replace(/\[\d+\]/g, "");
+  cleaned = cleaned.replace(/\[[a-z](?: [a-z])*\]/gi, "");
+  cleaned = cleaned.replace(/\[citation needed\]/gi, "");
+
   // Remove script/style remnants
   cleaned = cleaned.replace(/\/\*[\s\S]*?\*\//g, "");
   cleaned = cleaned.replace(/\bfunction\s*\([^)]*\)\s*\{[^}]*\}/g, "");

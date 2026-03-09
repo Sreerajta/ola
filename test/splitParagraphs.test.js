@@ -31,4 +31,26 @@ describe("splitParagraphs", () => {
     const result = splitParagraphs(text);
     assert.equal(result.length, 2);
   });
+
+  it("filters out paragraphs starting with ^", () => {
+    const text =
+      "This is a real article paragraph with enough text.\n\n^ \"ITIS Report: Octopoda Leach, 1818\". Itis.gov. 10 April 2013. Retrieved 4 February 2014.";
+    const result = splitParagraphs(text);
+    assert.equal(result.length, 1);
+    assert.ok(result[0].includes("real article"));
+  });
+
+  it("filters out Retrieved-style reference entries", () => {
+    const text =
+      'This is a real article paragraph with enough text.\n\n"Octopoda". Merriam-Webster.com Dictionary. Retrieved 12 July 2021.';
+    const result = splitParagraphs(text);
+    assert.equal(result.length, 1);
+  });
+
+  it("preserves normal paragraphs that are not references", () => {
+    const text =
+      "Octopuses have three hearts and blue blood.\n\nThey are among the most intelligent invertebrates known to science.";
+    const result = splitParagraphs(text);
+    assert.equal(result.length, 2);
+  });
 });
