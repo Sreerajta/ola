@@ -31,13 +31,16 @@ export async function extractText(input, options = {}) {
   const source = detectSource(input);
   const url = source.type === "url" ? source.value : undefined;
 
-  let html = await fetchHtml(source);
+  let html;
 
-  // Detect JS-heavy pages and warn or render
-  if (url && detectJsPage(html)) {
-    if (options.renderJs) {
-      html = await renderJs(url);
-    } else {
+  // When --render-js is explicitly requested, skip fetch and use Playwright
+  if (options.renderJs && url) {
+    html = await renderJs(url);
+  } else {
+    html = await fetchHtml(source);
+
+    // Detect JS-heavy pages and warn or render
+    if (url && detectJsPage(html)) {
       options.onJsDetected?.();
     }
   }
