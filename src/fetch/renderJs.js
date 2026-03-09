@@ -38,7 +38,16 @@ export async function renderJs(url) {
     // Wait for JS frameworks to render content
     await page.waitForTimeout(3000);
 
-    return await page.content();
+    const html = await page.content();
+
+    // Detect Cloudflare/bot protection pages
+    if (html.includes("challenge-platform") || html.includes("cf-chl-bypass")) {
+      throw new Error(
+        "This site is protected by Cloudflare bot detection and cannot be accessed with --render-js"
+      );
+    }
+
+    return html;
   } finally {
     await browser.close();
   }
