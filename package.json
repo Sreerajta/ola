@@ -1,0 +1,19 @@
+{
+  "name": "ola-cli",
+  "version": "0.1.0",
+  "description": "Safari Reader Mode for CLI pipelines — extract clean, readable article text from web pages",
+  "type": "module",
+  "bin": {
+    "ola": "./src/cli/ola.js"
+  },
+  "main": "./src/pipeline/extractText.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": ["cli", "reader", "readability", "text-extraction", "pipeline", "web-scraping", "reader-mode", "cli-tool", "nodejs"],
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "jsdom": "^25.0.0"
+  }
+}
