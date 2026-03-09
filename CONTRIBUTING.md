@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-git clone https://github.com/yourname/ola.git
+git clone git@github.com:Sreerajta/ola.git
 cd ola
 npm install
 ```

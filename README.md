@@ -6,8 +6,11 @@ Extract clean, readable article text from web pages and documents. Outputs plain
 
 ## Installation
 
-```
-npm install -g ola-cli
+```bash
+git clone git@github.com:Sreerajta/ola.git
+cd ola
+npm install
+npm link
 ```
 
 ## Usage
@@ -129,7 +132,7 @@ See the [`examples/`](examples/) directory for runnable scripts:
 ## Development
 
 ```bash
-git clone https://github.com/yourname/ola.git
+git clone git@github.com:Sreerajta/ola.git
 cd ola
 npm install
 npm test
