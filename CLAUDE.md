@@ -2,9 +2,11 @@
 
 ## Project Purpose
 
-ola extracts clean, readable article text from web pages. It is "Safari Reader Mode for CLI pipelines." It outputs plain text optimized for piping and downstream processing.
+ola (Malayalam: wave / page) extracts clean, readable article text from web pages. It is "Safari Reader Mode for CLI pipelines." It outputs plain text optimized for piping and downstream processing.
 
-ola does NOT summarize, analyze, rank, or use AI. It only extracts readable text.
+This project is built and maintained entirely through AI-assisted development. Every module, test, and doc was written with Claude. Contributors are expected to use LLMs as part of their workflow.
+
+ola does NOT summarize, analyze, rank, or use AI in its output. It only extracts readable text.
 
 ## Pipeline Architecture
 

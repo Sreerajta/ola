@@ -1,8 +1,14 @@
 # ola
 
-Safari Reader Mode for CLI pipelines.
+*ola* (Malayalam: wave / page) — Safari Reader Mode for CLI pipelines.
 
 Extract clean, readable article text from web pages and documents. Outputs plain text optimized for CLI pipelines and downstream processing.
+
+## Built with LLMs
+
+This project is built and maintained using Claude and other LLMs. The codebase, tests, documentation, and architecture were all developed through AI-assisted engineering.
+
+If you're contributing, you're expected to use LLMs as part of your workflow. See [CLAUDE.md](CLAUDE.md) for the AI contributor guide. If building with LLMs isn't your thing, this project is probably not for you.
 
 ## Installation
 
