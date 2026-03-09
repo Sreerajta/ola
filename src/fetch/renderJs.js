@@ -15,7 +15,9 @@ export async function renderJs(url) {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "networkidle" });
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+    // Wait for JS frameworks to render content
+    await page.waitForTimeout(2000);
     return await page.content();
   } finally {
     await browser.close();

@@ -3,9 +3,17 @@ import assert from "node:assert/strict";
 import { renderJs } from "../src/fetch/renderJs.js";
 
 describe("renderJs", () => {
-  it("throws when playwright is missing or browsers are not installed", async () => {
-    // Should throw either because playwright isn't installed,
-    // or because browser binaries haven't been downloaded
-    await assert.rejects(() => renderJs("https://example.com"));
+  it("returns HTML string from a rendered page", async () => {
+    // If Playwright + browsers are installed, this returns HTML.
+    // If not, it throws. Both are valid depending on environment.
+    try {
+      const html = await renderJs("https://example.com");
+      assert.equal(typeof html, "string");
+      assert.ok(html.includes("<html"));
+    } catch (err) {
+      assert.ok(
+        /Playwright is required|browserType\.launch/.test(err.message)
+      );
+    }
   });
 });
