@@ -1,4 +1,4 @@
-# ola
+# ola 🌴
 
 *ola* (Malayalam: wave / page) — Safari Reader Mode for CLI pipelines.
 
